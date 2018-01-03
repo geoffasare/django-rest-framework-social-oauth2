@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from django.conf.urls import url, include
+try:
+    from django.conf.urls import url, include
+except ImportError:
+    from django.urls import include, re_path as url
 from oauth2_provider.views import AuthorizationView
 
 from .views import ConvertTokenView, TokenView, RevokeTokenView, invalidate_sessions
